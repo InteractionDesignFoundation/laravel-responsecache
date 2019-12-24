@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class CacheMissed
 {
-    public Request $request;
+    /** @var \Illuminate\Http\Request */
+    public $request;
 
     public function __construct(Request $request)
     {
