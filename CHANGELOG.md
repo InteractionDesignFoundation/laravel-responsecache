@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-responsecache` will be documented in this file.
 
+## 6.6.0 - 2020-03-02
+
+- drop support for Laravel 6 to fix the test suite (namespace of `TestResponse` has changed)
+
+## 6.5.0 - 2020-03-02
+
+- add support for Laravel 7
+
 ## 6.4.0 - 2019-12-01
 
 - drop support for all non-current PHP and Laravel versions
@@ -9,6 +17,10 @@ All notable changes to `laravel-responsecache` will be documented in this file.
 ## 6.3.0 - 2019-09-01
 
 - add support for custom serializers
+
+## 6.2.1 - 2020-03-07
+
+- make compatible with Laravel 7, so the package can be used on PHP 7.3
 
 ## 6.2.0 - 2019-09-01
 

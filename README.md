@@ -1,8 +1,8 @@
 # Speed up an app by caching the entire response
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-responsecache.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-responsecache)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-responsecache/run-tests?label=tests)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-responsecache/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-responsecache)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-responsecache.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-responsecache)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-responsecache.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-responsecache)
 
@@ -11,6 +11,12 @@ This Laravel package can cache an entire response. By default it will cache all 
 So the first time a request comes in the package will save the response before sending it to the users. When the same request comes in again we're not going through the entire application but just respond with the saved response.
 
 Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+
+## Support us
+
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us). 
+
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -50,7 +56,7 @@ return [
      * When using the default CacheRequestFilter this setting controls the
      * default number of seconds responses must be cached.
      */
-    'cache_lifetime_in_seconds' => env('RESPONSE_CACHE_LIFETIME', 60 * 24 * 7),
+    'cache_lifetime_in_seconds' => env('RESPONSE_CACHE_LIFETIME', 60 * 60 * 24 * 7),
 
     /*
      * This setting determines if a http header named with the cache time
@@ -311,14 +317,13 @@ Route::group(function() {
 
 #### Clearing tagged content
 
-You can clear responses which are assigned a tag or list of tags. For example, this statement would remove all routes 
-specified above:
+You can clear responses which are assigned a tag or list of tags. For example, this statement would remove the `'/test3'` and `'/test4'` routes above:
 
 ```php
 ResponseCache::clear(['foo', 'bar']);
 ```
 
-In contrast, this statement would remove all of the routes except the `'/test1'` route:
+In contrast, this statement would remove only the `'/test2'` route:
 
 ```php
 ResponseCache::clear(['bar']);
@@ -441,25 +446,10 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
 
-## Postcardware
-
-You're free to use this package, but if it makes it to your production environment we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
-
-Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
-
-We publish all received postcards [on our company website](https://spatie.be/en/opensource/postcards).
-
 ## Credits
 
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)
-
-## Support us
-
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
-
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie).
-All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
 
 ## License
 
